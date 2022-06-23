@@ -67,7 +67,7 @@ def viewdata(db):
     print("Invalid Name")
   data = result.to_dict()
   print(data)
-  
+#Main function to call functions
 def main():
   choice = None
 
