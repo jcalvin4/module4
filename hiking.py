@@ -13,7 +13,9 @@ firebase_admin.initialize_app(cred, {
 
 db = firestore.client()
 
+#function to add data
 def addData(db): 
+  #create variables to store data
   hname = input("Enter Hike Name: ")
   hdistance = input("What was the hike distance in miles?")
   hlocation = input("What state is the hike located in?")
@@ -30,8 +32,10 @@ def addData(db):
     "Location(State)": hlocation,
     "Times Completed": completion
     }
+  #Store Data
 
   db.collection("hikelog").document(hname).set(data)
+#Function to Modify data
 
 def mod(db):
   hname = input("Enter Hike Name: ")
@@ -45,6 +49,7 @@ def mod(db):
   data["Times Completed"] += completion
   db.collection("hikelog").document(hname).set(data)
 
+#function to delete data
 def deletedata(db):
   hname = input("Enter Hike Name:")
 
@@ -53,7 +58,7 @@ def deletedata(db):
     print("Invalid Name")
   
   db.collection("hikelog").document(hname).delete()
-
+#Function to view data
 def viewdata(db):
   hname = input("Which information would you like to see?")
 
